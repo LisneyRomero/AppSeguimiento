@@ -7,28 +7,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('app');
-});
+})->name('inicio');
 
-/*Route::get('/programas', function () {
-    return view('Programas.index');
-});
 
-Route::get('/eps', function () {
-    return view('Eps.index');
-});
-
-Route::get('/regionales', function () {
-    return view('Regionales.index');
-});
-
-Route::get('/rolesadministrativos', function () {
-    return view('RolesAdminostrativos.index');
-});
-
-Route::get('/tipodocumentos', function () {
-    return view('Programas.index');
-});
-*/
 
 Route::get('/clear', function () {
     artisan::call('cache:clear');
