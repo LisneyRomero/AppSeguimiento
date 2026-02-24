@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class regionales extends Model
 {
+use HasFactory;
+    protected $primaryKey ='NIS';
+    public $incrementing = true;
 
+    protected $table = 'tbl_regionales';
+
+    protected $fillable = [ /*'NIS',*/ 'codigo', 'denominacion', 'observaciones'];
+
+    public $timestamps = false;
 }

@@ -11,27 +11,44 @@
     <title>create program</title>
 </head>
 <body>
-<form method = "POST" action = "{{ route('programas.store') }}" enctype="multipart/form-data">
-    @csrf
+  
+@section('content')
+<div class="container mt-5">
+    <h1>Crear Programa de Formación</h1>
 
+    {{-- Mostrar errores de validación --}}
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Codigo</label>
-        <input name="codigo" type="number" class="form-control" id="exampleFormControlInput1" placeholder="ficha de caracterizacion">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">denominacion</label>
-        <input name ="denominacion" type="text" class="form-control" id="exampleFormControlInput1" placeholder="ficha de caracterizacion">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">observaciones</label>
-        <input name = "observaciones" type="text" class="form-control" id="exampleFormControlInput1" placeholder="ficha de caracterizacion">
-    </div>
+    <form method="POST" action="{{ route('programas.store') }}">
+        @csrf
 
+        <div class="mb-3">
+            <label for="codigo" class="form-label">Código</label>
+            <input name="codigo" type="number" class="form-control" id="codigo" placeholder="Código del programa" value="{{ old('codigo') }}">
+        </div>
 
-    <button type="submit">subir</button>
+        <div class="mb-3">
+            <label for="denominacion" class="form-label">Denominación</label>
+            <input name="denominacion" type="text" class="form-control" id="denominacion" placeholder="Denominación del programa" value="{{ old('denominacion') }}">
+        </div>
 
+        <div class="mb-3">
+            <label for="observaciones" class="form-label">Observaciones</label>
+            <input name="observaciones" type="text" class="form-control" id="observaciones" placeholder="Observaciones" value="{{ old('observaciones') }}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Crear Programa</button>
+        <a href="{{ route('programas.index') }}" class="btn btn-secondary">Volver a la lista</a>
     </form>
+</div>
 
 </body>
 </html>

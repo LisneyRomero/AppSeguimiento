@@ -18,7 +18,7 @@ class programasdeformacionController extends Controller
             ->GET();
        // dd($programasdeformacion);
 
-        return view('Programas.index', compact('programasdeformacion'));
+        return view('programas.index', compact('programasdeformacion'));
     }
 
     /**
@@ -61,7 +61,10 @@ class programasdeformacionController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //Buscar el programa por su NIS
+    $programa = programasdeformacion::findOrFail($id);
+
+    return view('Programas.show', compact('programa'));
     }
 
     /**
@@ -69,7 +72,11 @@ class programasdeformacionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // Busca el programa por su primary key (NIS)
+    $programa = programasdeformacion::findOrFail($id);
+
+    // Retorna la vista edit con los datos
+    return view('programas.edit', compact('programa'));
     }
 
     /**
@@ -77,7 +84,21 @@ class programasdeformacionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Validación de los campos
+    $request->validate([
+        'codigo' => 'required',
+        'denominacion' => 'required',
+        'observaciones' => 'required',
+    ]);
+
+    // Busca el programa
+    $programa = programasdeformacion::findOrFail($id);
+
+    // Actualiza solo los campos permitidos
+    $programa->update($request->only('codigo', 'denominacion', 'observaciones'));
+
+    // Redirige a la lista con mensaje de éxito
+    return redirect()->route('programas.index')->with('success', 'Programa actualizado correctamente.');
     }
 
     /**
@@ -85,6 +106,13 @@ class programasdeformacionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Buscar el programa por su primary key (NIS)
+    $programa = programasdeformacion::findOrFail($id);
+
+    // Eliminar el registro
+    $programa->delete();
+
+    // Redirigir a la lista con mensaje de éxito
+    return redirect()->route('programas.index')->with('success', 'Programa eliminado correctamente.');
     }
 }
