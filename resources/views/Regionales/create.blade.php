@@ -13,7 +13,7 @@
 </head>
 <body>
 <form method = "POST" action = "{{route('regionales.store')}}" enctype="multipart/form-data">
-
+@csrf
 
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Codigo</label>
