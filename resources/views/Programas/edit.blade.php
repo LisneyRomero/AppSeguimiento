@@ -29,7 +29,7 @@
     {{-- Formulario de edición --}}
     <form method="POST" action="{{ route('programas.update', $programa->NIS) }}">
         @csrf
-        @method('PUT') {{-- Necesario para update --}}
+        @method('PUT') 
 
         <div class="mb-3">
             <label for="codigo" class="form-label">Código</label>

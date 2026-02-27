@@ -1,15 +1,8 @@
-<?php
-?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<div class="container mt-5">
+@extends('app')
+
+@section('title', 'Programas')
+
+@section('content')
     <h1>Lista de Programas de Formación</h1>
 
     {{-- Mensaje de éxito --}}
@@ -63,5 +56,4 @@
     <a href="{{ route('inicio') }}" class="btn btn-success">Inicio</a>
 </div>
 
-</body>
-</html>
+@endsection

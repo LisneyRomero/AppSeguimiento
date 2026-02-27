@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\eps;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class epsController extends Controller
 {
@@ -11,12 +13,11 @@ class epsController extends Controller
      */
     public function index()
     {
-        $epsController = DB :: table('tbl_eps')
-            ->SELECT('tbl_eps.*')
+        $eps = DB :: table('tbl_eps')
+           
             ->GET();
-        dd($epsController);
-
-        return view('Eps.index', compact('eps'));
+       
+        return view('eps.index' , compact('eps'));
     }
 
     /**
@@ -24,7 +25,7 @@ class epsController extends Controller
      */
     public function create()
     {
-        //
+        return view('eps.create');
     }
 
     /**
@@ -32,7 +33,20 @@ class epsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'numDocumento' => 'required',
+            'denominacion' => 'required',
+            'observaciones' => 'required'
+        ]);
+
+        $Eps = new eps();
+        $Eps ->numDocumento = $request->numDocumento;
+        $Eps ->denominacion = $request->denominacion;
+        $Eps ->observaciones= $request->observaciones;
+
+        $Eps ->save();
+
+        return redirect()-> route('eps.create');
     }
 
     /**
@@ -40,7 +54,10 @@ class epsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //Buscar por NIS
+        $eps = eps::findOrFail($id);
+
+        return view('eps.show',compact('eps'));
     }
 
     /**
@@ -48,7 +65,11 @@ class epsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        //eps por primary key
+        $eps = eps::findOrFail($id);
+
+        //retorna la vista edit con datos 
+        return view('eps.edit', compact('eps'));
     }
 
     /**
@@ -56,7 +77,21 @@ class epsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //validacion de campos
+        $request->validate([
+            'numDocumento' => 'required',
+            'denominacion' => 'required',
+            'observaciones' => 'required'
+        ]);
+
+        //Buscar eps 
+        $eps= eps::findOrFail($id);
+
+        //Actualiza solo los campos permitidos
+        $eps->update($request->only('numDocumento','denominacion','observaciones'));
+
+        //Redirige a la lista con mensaje de texto
+        return redirect()->route ('eps.index')->with('succes', 'Eps actualizada correctamente');
     }
 
     /**
@@ -64,6 +99,15 @@ class epsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //Buscar la eps por su primary key
+        $eps = eps::findOrFail($id);
+
+        //eliminar un registro
+        $eps->delete();
+
+        //Redirigir a la lista con mensaje de texto
+         return redirect()->route ('eps.index')->with('succes', 'Eps eliminada correctamente');
+
+
     }
 }

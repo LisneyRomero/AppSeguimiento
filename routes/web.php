@@ -2,11 +2,12 @@
 
 use App\Http\Controllers\programasdeformacionController;
 use App\Http\Controllers\regionalesController;
+use App\Http\Controllers\epsController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('app');
+    return view('inicio');
 })->name('inicio');
 
 
@@ -24,5 +25,5 @@ Route::resource('/programas', programasdeformacionController::class);
 //Route::get('/regionalescreate',[regionalesController::class,'create'])->name('Regionales.create');
 Route::resource('/regionales', regionalesController::class);
 
-
+Route::resource('/eps', epsController::class);
 
