@@ -1,18 +1,9 @@
-<?php
-?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>create eps</title>
-</head>
-<body>
-  
+@extends('app')
+
+@section('title', 'EPS')
+
 @section('content')
+  
 <div class="container mt-5">
     <h1>Crear eps</h1>
 
@@ -31,7 +22,7 @@
         @csrf
 
         <div class="mb-3">
-            <label for="codigo" class="form-label">Num.Documento</label>
+            <label for="numDocumento" class="form-label">Num.Documento</label>
             <input name="numDocumento" type="number" class="form-control" id="numDocumento" placeholder="Num Documento" value="{{ old('numDocumento') }}">
         </div>
 
@@ -49,6 +40,5 @@
         <a href="{{ route('eps.index') }}" class="btn btn-secondary">Volver a la lista</a>
     </form>
 </div>
+@endsection
 
-</body>
-</html>

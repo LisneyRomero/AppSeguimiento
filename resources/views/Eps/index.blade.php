@@ -13,7 +13,7 @@
                name="buscar" 
                value="{{ request('buscar') }}"
                class="form-control"
-               placeholder="Buscar por departamento...">
+               placeholder="Buscar...">
     </div>
 
     <div class="col-md-2">
@@ -45,8 +45,8 @@
     <thead class="table-dark">
         <tr>
             <th>NIS</th>
-            <th>Numero de Documento</th>
-            <th>Denominación</th>
+            <th>NIT</th>
+            <th>Nombre de EPS</th>
             <th>Observaciones</th>
             <th>Acciones</th>
         </tr>
@@ -78,7 +78,7 @@
         @empty
             <tr>
                 <td colspan="5" class="text-center">
-                    No hay regiones registradas.
+                    No hay eps registradas.
                 </td>
             </tr>
         @endforelse

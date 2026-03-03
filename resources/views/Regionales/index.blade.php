@@ -13,7 +13,7 @@
                name="buscar" 
                value="{{ request('buscar') }}"
                class="form-control"
-               placeholder="Buscar por departamento...">
+               placeholder="Buscar...">
     </div>
 
     <div class="col-md-2">

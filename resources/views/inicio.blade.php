@@ -25,6 +25,7 @@
     <h1 class="mb-4 text-center">INICIO</h1>
 
     <div class="row g-4">
+
         {{-- Card Programas --}}
         <div class="col-md-4">
             <div class="card h-100">
@@ -49,6 +50,7 @@
                 </div>
             </div>
         </div>
+
         {{-- Card eps --}}
         <div class="col-md-4">
             <div class="card h-100">
@@ -58,6 +60,19 @@
                     <p class="card-text">Consulta, agrega o edita la informacion sobre eps</p>
                     <br>
                     <a href="{{ route('eps.index') }}" class="btn btn-success">Ir a Eps</a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Card roles --}}
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="{{ asset('images/roles.jpg') }}" alt="RolesAdministrativos" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Roles</h5>
+                    <p class="card-text">Consulta, agrega o edita la informacion sobre roles</p>
+                    <br>
+                    <a href="{{ route('rolesadministrativos.index') }}" class="btn btn-success">Ir a Roles</a>
                 </div>
             </div>
         </div>

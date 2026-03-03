@@ -11,14 +11,20 @@ class epsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $eps = DB :: table('tbl_eps')
-           
-            ->GET();
-       
-        return view('eps.index' , compact('eps'));
-    }
+    public function index(Request $request)
+{
+    $buscar = $request->buscar;
+
+    $eps = DB::table('tbl_eps')
+        ->when($buscar, function ($query, $buscar) {
+            return $query->where('denominacion', 'like', "%$buscar%")
+                         ->orWhere('numDocumento', 'like', "%$buscar%");
+        })
+        ->get();
+
+    return view('eps.index', compact('eps'));
+   
+}
 
     /**
      * Show the form for creating a new resource.
@@ -39,12 +45,12 @@ class epsController extends Controller
             'observaciones' => 'required'
         ]);
 
-        $Eps = new eps();
-        $Eps ->numDocumento = $request->numDocumento;
-        $Eps ->denominacion = $request->denominacion;
-        $Eps ->observaciones= $request->observaciones;
+        $eps = new Eps();
+        $eps ->numDocumento = $request->numDocumento;
+        $eps ->denominacion = $request->denominacion; 
+        $eps ->observaciones= $request->observaciones;
 
-        $Eps ->save();
+        $eps ->save();
 
         return redirect()-> route('eps.create');
     }

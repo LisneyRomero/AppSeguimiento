@@ -104,6 +104,26 @@
                 </div>
             </li>
 
+            {{-- ROLES --}}
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#roles-collapse">
+                    Roles
+                </button>
+                <div class="collapse" id="roles-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li>
+                            <a href="{{ route('rolesadministrativos.index') }}"
+                               class="link-dark d-inline-flex text-decoration-none rounded">
+                                Ver roles
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
         </ul>
     </div>
 
