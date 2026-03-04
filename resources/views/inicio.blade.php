@@ -12,7 +12,7 @@
     
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #e5e8f3;
         }
         .card-img-top {
             height: 150px;
@@ -21,14 +21,20 @@
     </style>
 </head>
 <body>
+
+    <div class="text-center mt-5">
+    <h1 style="font-size: 40px; font-weight: 700; letter-spacing: 2px;">
+        SISTEMA DE SEGUIMIENTO
+    </h1>
+</div>
+
 <div class="container mt-5">
-    <h1 class="mb-4 text-center">INICIO</h1>
 
     <div class="row g-4">
 
         {{-- Card Programas --}}
-        <div class="col-md-4">
-            <div class="card h-100">
+        <div class="col-md-3">
+            <div class="card shadow-lg rounded-4">
                 <img src="{{ asset('images/programas.jpg') }}" alt="Programas" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Programas de Formación</h5>
@@ -39,44 +45,56 @@
         </div>
 
         {{-- Card Regionales --}}
-        <div class="col-md-4">
-            <div class="card h-100">
+        <div class="col-md-3">
+            <div class="card shadow-lg rounded-4">
                 <img src="{{ asset('images/regiones.jpg') }}" alt="Regionales" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Regionales</h5>
                     <p class="card-text">Consulta, agrega o edita la información.</p>
-                    <br>
-                    <a href="{{ route('regionales.index') }}" class="btn btn-success">Ir a Regionales</a>
+                  
+                    <a href="{{ route('regionales.index') }}" class="btn btn-primary">Ir a Regionales</a>
                 </div>
             </div>
         </div>
 
         {{-- Card eps --}}
-        <div class="col-md-4">
-            <div class="card h-100">
+        <div class="col-md-3">
+            <div class="card shadow-lg rounded-4">
                 <img src="{{ asset('images/eps.jpg') }}" alt="EPS" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">EPS</h5>
                     <p class="card-text">Consulta, agrega o edita la informacion sobre eps</p>
-                    <br>
-                    <a href="{{ route('eps.index') }}" class="btn btn-success">Ir a Eps</a>
+                  
+                    <a href="{{ route('eps.index') }}" class="btn btn-primary">Ir a Eps</a>
                 </div>
             </div>
         </div>
 
         {{-- Card roles --}}
-        <div class="col-md-4">
-            <div class="card h-100">
+        <div class="col-md-3">
+            <div class="card shadow-lg rounded-4">
                 <img src="{{ asset('images/roles.jpg') }}" alt="RolesAdministrativos" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Roles</h5>
                     <p class="card-text">Consulta, agrega o edita la informacion sobre roles</p>
-                    <br>
-                    <a href="{{ route('rolesadministrativos.index') }}" class="btn btn-success">Ir a Roles</a>
+                   
+                    <a href="{{ route('rolesadministrativos.index') }}" class="btn btn-primary">Ir a Roles</a>
                 </div>
             </div>
         </div>
 
+{{-- Card Tipos de Documentos--}}
+        <div class="col-md-3">
+            <div class="card shadow-lg rounded-4">
+                <img src="{{ asset('images/doc.jpg') }}" alt="TipoDocumentos" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Tipos de Documento</h5>
+                    <p class="card-text">Consulta, agrega o edita la informacion</p>
+    
+                    <a href="{{ route('tiposdocumentos.index') }}" class="btn btn-primary">Ir a documentos</a>
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>

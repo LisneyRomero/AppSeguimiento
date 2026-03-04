@@ -11,15 +11,21 @@ class programasdeformacionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $programasdeformacion = DB :: table('tbl_programasdeformacion')
+    public function index(Request $request)
+{
+    $buscar = $request->buscar;
 
-            ->GET();
-       // dd($programasdeformacion);
+    $programas = DB::table('tbl_programasdeformacion')
+        ->when($buscar, function ($query, $buscar) {
+            return $query->where('denominacion', 'like', "%$buscar%")
+                         ->orWhere('codigo', 'like', "%$buscar%");
+        })
+        ->get();
 
-        return view('programas.index', compact('programasdeformacion'));
-    }
+    return view('programas.index', compact('programas'));
+   
+}
+    
 
     /**
      * Show the form for creating a new resource.
@@ -44,12 +50,12 @@ class programasdeformacionController extends Controller
             return back()->with('errors', $v->errors());
         }*/
 
-        $Programas = new programasdeformacion();
-        $Programas->codigo = $request->codigo;
-        $Programas->denominacion = $request->denominacion;
-        $Programas->observaciones = $request->observaciones;
+        $programas = new programasdeformacion();
+        $programas->codigo = $request->codigo;
+        $programas->denominacion = $request->denominacion;
+        $programas->observaciones = $request->observaciones;
 
-        $Programas->save();
+        $programas->save();
 
 
         return redirect()->route('programas.create');
@@ -62,9 +68,9 @@ class programasdeformacionController extends Controller
     public function show(string $id)
     {
         //Buscar el programa por su NIS
-    $programa = programasdeformacion::findOrFail($id);
+    $programas = programasdeformacion::findOrFail($id);
 
-    return view('Programas.show', compact('programa'));
+    return view('programas.show', compact('programas'));
     }
 
     /**
@@ -73,10 +79,10 @@ class programasdeformacionController extends Controller
     public function edit(string $id)
     {
         // Busca el programa por su primary key (NIS)
-    $programa = programasdeformacion::findOrFail($id);
+    $programas = programasdeformacion::findOrFail($id);
 
     // Retorna la vista edit con los datos
-    return view('programas.edit', compact('programa'));
+    return view('programas.edit', compact('programas'));
     }
 
     /**
@@ -92,10 +98,10 @@ class programasdeformacionController extends Controller
     ]);
 
     // Busca el programa
-    $programa = programasdeformacion::findOrFail($id);
+    $programas = programasdeformacion::findOrFail($id);
 
     // Actualiza solo los campos permitidos
-    $programa->update($request->only('codigo', 'denominacion', 'observaciones'));
+    $programas->update($request->only('codigo', 'denominacion', 'observaciones'));
 
     // Redirige a la lista con mensaje de éxito
     return redirect()->route('programas.index')->with('success', 'Programa actualizado correctamente.');
@@ -107,10 +113,10 @@ class programasdeformacionController extends Controller
     public function destroy(string $id)
     {
         // Buscar el programa por su primary key (NIS)
-    $programa = programasdeformacion::findOrFail($id);
+    $programas = programasdeformacion::findOrFail($id);
 
     // Eliminar el registro
-    $programa->delete();
+    $programas->delete();
 
     // Redirigir a la lista con mensaje de éxito
     return redirect()->route('programas.index')->with('success', 'Programa eliminado correctamente.');

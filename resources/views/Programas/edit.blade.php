@@ -1,15 +1,6 @@
-<?php
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Document</title>
-</head>
-<body>
+@extends('app')
+
+@section('title', 'Programas')
     
 @section('content')
 <div class="container mt-5">
@@ -27,23 +18,23 @@
     @endif
 
     {{-- Formulario de edición --}}
-    <form method="POST" action="{{ route('programas.update', $programa->NIS) }}">
+    <form method="POST" action="{{ route('programas.update', $programas->NIS) }}">
         @csrf
         @method('PUT') 
 
         <div class="mb-3">
             <label for="codigo" class="form-label">Código</label>
-            <input name="codigo" type="number" class="form-control" id="codigo" placeholder="Código del programa" value="{{ old('codigo', $programa->codigo) }}">
+            <input name="codigo" type="number" class="form-control" id="codigo" placeholder="Código del programa" value="{{ old('codigo', $programas->codigo) }}">
         </div>
 
         <div class="mb-3">
             <label for="denominacion" class="form-label">Denominación</label>
-            <input name="denominacion" type="text" class="form-control" id="denominacion" placeholder="Denominación del programa" value="{{ old('denominacion', $programa->denominacion) }}">
+            <input name="denominacion" type="text" class="form-control" id="denominacion" placeholder="Denominación del programa" value="{{ old('denominacion', $programas->denominacion) }}">
         </div>
 
         <div class="mb-3">
             <label for="observaciones" class="form-label">Observaciones</label>
-            <input name="observaciones" type="text" class="form-control" id="observaciones" placeholder="Observaciones" value="{{ old('observaciones', $programa->observaciones) }}">
+            <input name="observaciones" type="text" class="form-control" id="observaciones" placeholder="Observaciones" value="{{ old('observaciones', $programas->observaciones) }}">
         </div>
 
         <button type="submit" class="btn btn-primary">Actualizar</button>
@@ -51,4 +42,4 @@
     </form>
 </div>
 </body>
-</html>
+@endsection

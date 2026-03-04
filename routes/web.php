@@ -4,6 +4,7 @@ use App\Http\Controllers\programasdeformacionController;
 use App\Http\Controllers\regionalesController;
 use App\Http\Controllers\epsController;
 use App\Http\Controllers\roladministrativoController;
+use App\Http\Controllers\tiposdocumentosController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,5 @@ Route::resource('/regionales', regionalesController::class);
 Route::resource('/eps', epsController::class);
 
 Route::resource('/rolesadministrativos', roladministrativoController::class);
+
+Route::resource('/tiposdocumentos', tiposdocumentosController::class);
