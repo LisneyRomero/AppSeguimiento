@@ -24,7 +24,7 @@ class tiposdocumentosController extends Controller
         })
         ->get();
 
-    return view('tipodocumentos.index', compact('tiposdocumentos'));
+    return view('TipoDocumentos.index', compact('tiposdocumentos'));
 }
 
     /**
@@ -32,7 +32,7 @@ class tiposdocumentosController extends Controller
      */
     public function create()
     {
-        return view ('tipodocumentos.create');
+        return view ('TipoDocumentos.create');
     }
 
     /**
@@ -42,12 +42,12 @@ class tiposdocumentosController extends Controller
     {
         $validated = $request->validate([
     'denominacion' => 'required',
-    'observaciones' => 'required'
+    'observaciones' => 'nullable'
 ]);
 
     tiposdocumentos::create($validated);
 
-    return redirect()->route('tipodocumentos.index');
+    return redirect()->route('tiposdocumentos.index');
     }
 
     /**
@@ -58,7 +58,7 @@ class tiposdocumentosController extends Controller
         //Buscar la identificacion por su NIS
     $tiposdocumentos = tiposdocumentos::findOrFail($id);
 
-    return view('tipodocumentos.show', compact('tiposdocumentos'));
+    return view('TipoDocumentos.show', compact('tiposdocumentos'));
     }
 
     /**
@@ -70,7 +70,7 @@ class tiposdocumentosController extends Controller
     $tiposdocumentos = tiposdocumentos::findOrFail($id);
 
     // Retorna la vista edit con los datos
-    return view('tipodocumentos.edit', compact('tiposdocumentos'));
+    return view('TipoDocumentos.edit', compact('tiposdocumentos'));
     }
 
     /**
@@ -81,7 +81,7 @@ class tiposdocumentosController extends Controller
         /// Validación de los campos
     $request->validate([
         'denominacion' => 'required',
-        'observaciones' => 'required',
+        'observaciones' => 'nullable',
     ]);
 
     // Busca las identificaciones
@@ -91,7 +91,7 @@ class tiposdocumentosController extends Controller
     $tiposdocumentos->update($request->only( 'denominacion', 'observaciones'));
 
     // Redirige a la lista con mensaje de éxito
-    return redirect()->route('tipodocumentos.index')->with('success', 'Identificacion actualizada correctamente.');
+    return redirect()->route('tiposdocumentos.index')->with('success', 'Identificacion actualizada correctamente.');
     }
     
 
@@ -107,7 +107,7 @@ class tiposdocumentosController extends Controller
     $tiposdocumentos->delete();
 
     // Redirigir a la lista con mensaje de éxito
-    return redirect()->route('tipodocumentos.index')->with('success', 'Identificacion eliminada correctamente.');
+    return redirect()->route('tiposdocumentos.index')->with('success', 'Identificacion eliminada correctamente.');
     
     }
 }

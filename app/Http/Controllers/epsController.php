@@ -50,9 +50,10 @@ class epsController extends Controller
         $eps ->denominacion = $request->denominacion; 
         $eps ->observaciones= $request->observaciones;
 
-        $eps ->save();
+        $eps->save();
 
-        return redirect()-> route('eps.create');
+        return redirect()->route('eps.index')
+            ->with('success','EPS creada correctamente');
     }
 
     /**
@@ -97,7 +98,8 @@ class epsController extends Controller
         $eps->update($request->only('numDocumento','denominacion','observaciones'));
 
         //Redirige a la lista con mensaje de texto
-        return redirect()->route ('eps.index')->with('succes', 'Eps actualizada correctamente');
+        return redirect()->route('eps.index')
+            ->with('success','EPS actualizada correctamente');
     }
 
     /**
@@ -112,7 +114,8 @@ class epsController extends Controller
         $eps->delete();
 
         //Redirigir a la lista con mensaje de texto
-         return redirect()->route ('eps.index')->with('succes', 'Eps eliminada correctamente');
+         return redirect()->route('eps.index')
+                ->with('success','EPS eliminada correctamente');    
 
 
     }

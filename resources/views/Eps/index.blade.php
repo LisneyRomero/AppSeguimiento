@@ -62,17 +62,15 @@
                     <a href="{{ route('eps.show', $eps->NIS) }}" class="btn btn-info btn-sm">Ver</a>
                     <a href="{{ route('eps.edit', $eps->NIS) }}" class="btn btn-warning btn-sm">Editar</a>
 
-                    <form action="{{ route('eps.destroy', $eps->NIS) }}" 
-                          method="POST" 
-                          class="d-inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" 
-                                class="btn btn-danger btn-sm"
-                                onclick="return confirm('¿Estás seguro de eliminar esta eps')">
-                            Eliminar
-                        </button>
-                    </form>
+                    <form action="{{ route('eps.destroy',$eps->NIS) }}" method="POST">
+
+    @csrf
+    @method('DELETE')
+
+    <button type="submit" class="btn btn-danger btn-sm bi-trash3 btn-eliminar">   
+    </button>
+
+</form>
                 </td>
             </tr>
         @empty

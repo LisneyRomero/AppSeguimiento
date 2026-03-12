@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'Regionales')
+@section('title', 'ID')
 
 @section('content')
 
@@ -67,7 +67,7 @@
                         @method('DELETE')
                         <button type="submit" 
                                 class="btn btn-danger btn-sm"
-                                onclick="return confirm('¿Estás seguro de eliminar esta región?')">
+                                onclick="return confirm('¿Estás seguro de eliminar esta ID?')">
                             Eliminar
                         </button>
                     </form>
