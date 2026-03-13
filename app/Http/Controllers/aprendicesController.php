@@ -13,11 +13,11 @@ class aprendicesController extends Controller
     /**
      * Display a listing of the resource.
      */
-  
-    
+
+
          public function index(Request $request)
     {
-    
+
         $buscar = $request->buscar;
 
         $aprendices = aprendices::with(['tiposdocumentos', 'eps'])
@@ -30,7 +30,7 @@ class aprendicesController extends Controller
             ->withQueryString(); // mantiener la búsqueda
 
         return view('aprendices.index', compact('aprendices', 'buscar'));
-    
+
 
 
     }
@@ -40,7 +40,7 @@ class aprendicesController extends Controller
      */
     public function create()
     {
-        
+
         $tiposdocumentos = tiposdocumentos::all();
         $eps = eps::all();
 
@@ -124,19 +124,8 @@ class aprendicesController extends Controller
             'tbl_eps_NIS' => 'required'
         ]);
 
-        $aprendices = aprendices::findOrFail($id);
 
-        $aprendices->tbl_tiposdocumentos_NIS = $request->tbl_tiposdocumentos_NIS;
-        $aprendices->numDocumento = $request->numDocumento;
-        $aprendices->nombres = $request->nombres;
-        $aprendices->apellidos = $request->apellidos;
-        $aprendices->direccion = $request->direccion;
-        $aprendices->correoInstitucional = $request->correoInstitucional;
-        $aprendices->correoPersonal = $request->correoPersonal;
-        $aprendices->sexo = $request->sexo;
-        $aprendices->fechaNacimiento = $request->fechaNacimiento;
-        $aprendices->tbl_eps_NIS = $request->tbl_eps_NIS;
-        $aprendices->save();
+        aprendices::update($request->all());
 
       return redirect()->route('aprendices.index')
        ->with('success','Aprendiz actualizado correctamente');
