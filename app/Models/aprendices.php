@@ -12,7 +12,16 @@ class aprendices extends Model
     public $incrementing = true;
     protected $table = 'tbl_aprendices';
     protected $fillable = [
-      'tbl_tiposdocumentos_NIS','numDocumento', 'nombres', 'apellidos', 'direccion', 'correoInstitucional', 'correoPersonal', 'sexo', 'fechaNacimiento', 'tbl_eps_NIS'];
+      'tbl_tiposdocumentos_NIS',
+        'numDocumento',
+        'nombres',
+        'apellidos',
+        'direccion',
+        'correoInstitucional',
+        'correoPersonal',
+        'sexo',
+        'fechaNacimiento',
+        'tbl_eps_NIS'];
     public $timestamps = false;
 
     public function getSexoTextoAttribute()

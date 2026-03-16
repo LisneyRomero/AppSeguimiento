@@ -317,6 +317,26 @@
             </div>
         </div>
 
+        <!-- EMPRESAS -->
+
+        <div class="card-ui">
+            <img src="{{ asset('images/empresa.jpg') }}">
+
+            <div class="card-body">
+
+                <h5>Empresas</h5>
+
+                <p class="card-text">
+                    Información de entes conformadores.
+                </p>
+
+                <a href="{{ route('enteconformadores.index') }}" class="btn btn-ui">
+                    Abrir módulo
+                </a>
+
+            </div>
+        </div>
+
 
     </div>
 

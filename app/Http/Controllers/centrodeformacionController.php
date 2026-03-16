@@ -12,7 +12,7 @@ class centrodeformacionController extends Controller
      */
      public function index(Request $request)
     {
-    
+
         $buscar = $request->buscar;
 
         $centrodeformacion = centrosdeformacion::with(['regionales'])
@@ -20,7 +20,7 @@ class centrodeformacionController extends Controller
                 $query->where('codigo', 'like', "%$buscar%")
                     ->orWhere('denominacion', 'like', "%$buscar%")
                     ->orWhere('direccion', 'like', "%$buscar%");
-                        
+
             })
             ->paginate(10)
             ->withQueryString(); // mantiener la búsqueda
@@ -48,7 +48,7 @@ class centrodeformacionController extends Controller
             'denominacion' => 'required',
             'direccion' => 'required',
             'observaciones' => 'nullable',
-        
+
         ],
             [
                 'tbl_regionales_NIS.required' => 'El campo Regional es obligatorio',
@@ -56,7 +56,7 @@ class centrodeformacionController extends Controller
                 'denominacion.required' => 'El campo Denominacion es obligatorio',
                 'direccion.required' => 'El campo direccion es obligatorio',
                 'observaciones.nullable' => 'El campo Observaciones es opcional',
-                
+
             ]);
         /*if ($v->fails()){
             return back()->with('errors', $v->errors());
@@ -64,7 +64,8 @@ class centrodeformacionController extends Controller
 
          centrosdeformacion::create($request->all());
 
-        return redirect()->route('centrosdeformacion.index')->with('success','Centro de formación registrado correctamente');
+        return redirect()->route('centrosdeformacion.index')
+            ->with('success','Centro de formación registrado correctamente');
     }
 
 
@@ -74,8 +75,7 @@ class centrodeformacionController extends Controller
     public function show(string $id)
     {
         $centrodeformacion = centrosdeformacion::findOrFail($id);
-
-    return view('centrodeformacion.show', compact('centrodeformacion'));
+        return view('centrodeformacion.show', compact('centrodeformacion'));
     }
 
     /**
@@ -85,7 +85,7 @@ class centrodeformacionController extends Controller
     {
         $centrodeformacion = centrosdeformacion::findOrFail($id);
         $regionales = regionales::all();
-        
+
         return view('centrodeformacion.edit', compact('centrodeformacion', 'regionales'));
     }
 
@@ -108,7 +108,7 @@ class centrodeformacionController extends Controller
 
     return redirect()->route('centrosdeformacion.index')
         ->with('success','Centro de formación actualizado correctamente');
-    
+
     }
 
     /**

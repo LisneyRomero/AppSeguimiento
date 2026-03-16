@@ -7,7 +7,7 @@
     <div class="container mt-4">
         <div class="table table-bordered table-striped table-hover">
             <div class="card-header bg-success text-white">
-                <h4 class="mb-0">Registrar Centro de Formacion</h4>
+                <h4 class="mb-0">Registrar Empresa</h4>
             </div>
 
             <div class="card-body">
@@ -22,47 +22,47 @@
                     </div>
                 @endif
 
-                <form action="{{ route('centrosdeformacion.store') }}" method="POST">
+                <form action="{{ route('enteconformadores.store') }}" method="POST">
                     @csrf
 
                     <div class="row">
 
-                        {{-- Regional --}}
+                        {{-- Tipo Documento --}}
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Regional</label>
-                            <select name="tbl_regionales_NIS"
-                                    class="form-select @error('tbl_regionales_NIS') is-invalid @enderror">
+                            <label class="form-label">Tipo Documento</label>
+                            <select name="tbl_tiposdocumentos_NIS"
+                                    class="form-select @error('tbl_tiposdocumentos_NIS') is-invalid @enderror">
                                 <option value="" disabled selected>Seleccione...</option>
-                                @foreach($regionales as $regional)
-                                    <option value="{{ $regional->NIS }}"
-                                        {{ old('tbl_regionales_NIS') == $regional->NIS ? 'selected' : '' }}>
-                                        {{ $regional->denominacion }}
+                                @foreach($tiposdocumentos as $tipo)
+                                    <option value="{{ $tipo->NIS }}"
+                                        {{ old('tbl_tiposdocumentos_NIS') == $tipo->NIS ? 'selected' : '' }}>
+                                        {{ $tipo->denominacion }}
                                     </option>
                                 @endforeach
                             </select>
-                            @error('tbl_regionales_NIS')
+                            @error('tbl_tiposdocumentos_NIS')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
-                        {{-- Codigo --}}
+                        {{-- Numero de Documento --}}
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Codigo</label>
-                            <input type="number" name="codigo"
-                                   value="{{ old('codigo') }}"
-                                   class="form-control @error('codigo') is-invalid @enderror">
-                            @error('codigo')
+                            <label class="form-label">Num.Documento</label>
+                            <input type="number" name="numDocumento"
+                                   value="{{ old('numDocumento') }}"
+                                   class="form-control @error('numDocumento') is-invalid @enderror">
+                            @error('numDocumento')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
-                        {{-- Denominacion --}}
+                        {{-- Razon Social  --}}
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Denominacion</label>
-                            <input type="text" name="denominacion"
-                                   value="{{ old('denominacion') }}"
-                                   class="form-control @error('denominacion') is-invalid @enderror">
-                            @error('denominacion')
+                            <label class="form-label">Razón Social</label>
+                            <input type="text" name="razonSocial"
+                                   value="{{ old('razonSocial') }}"
+                                   class="form-control @error('razonSocial') is-invalid @enderror">
+                            @error('razonSocial')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
@@ -75,11 +75,19 @@
                                    class="form-control">
                         </div>
 
-                        {{-- Observaciones --}}
+                        {{-- Telefono --}}
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Observaciones</label>
-                            <input type="text" name="observaciones"
-                                   value="{{ old('observaciones') }}"
+                            <label class="form-label">Telefono</label>
+                            <input type="number" name="telefono"
+                                   value="{{ old('telefono') }}"
+                                   class="form-control">
+                        </div>
+
+                        {{-- Correo Institucional --}}
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Correo Institucional</label>
+                            <input type="email" name="correoInstitucional"
+                                   value="{{ old('correoInstitucional') }}"
                                    class="form-control">
                         </div>
 
@@ -87,11 +95,11 @@
                     </div>
 
                     <div class="text-end mt-3">
-                        <a href="{{ route('centrosdeformacion.index') }}" class="btn btn-secondary">
+                        <a href="{{ route('enteconformadores.index') }}" class="btn btn-secondary">
                             Volver
                         </a>
                         <button type="submit" class="btn btn-success">
-                            Guardar Centro de Formación
+                            Guardar Empresa
                         </button>
                     </div>
 
