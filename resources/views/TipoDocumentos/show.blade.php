@@ -12,8 +12,8 @@
             Tipo de Documento: {{ $tiposdocumentos->denominacion }}
         </div>
         <div class="card-body">
-            <p><strong>NIT</strong> {{ $tiposdocumentos->numDocumento }}</p>
-            <p><strong>ID</strong> {{ $tiposdocumentos->denominacion }}</p>
+           {{-- <p><strong>NIT</strong> {{ $tiposdocumentos->numDocumento }}</p> --}}
+            <p><strong>TI</strong> {{ $tiposdocumentos->denominacion }}</p>
             <p><strong>Observaciones:</strong> {{ $tiposdocumentos->observaciones }}</p>
         </div>
         <div class="card-footer">

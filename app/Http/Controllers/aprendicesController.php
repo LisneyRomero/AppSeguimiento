@@ -125,7 +125,8 @@ class aprendicesController extends Controller
         ]);
 
 
-        aprendices::update($request->all());
+        $aprendices = aprendices::findOrFail($id);
+        $aprendices->update($request->all());
 
       return redirect()->route('aprendices.index')
        ->with('success','Aprendiz actualizado correctamente');
