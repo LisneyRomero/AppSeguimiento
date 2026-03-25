@@ -80,6 +80,7 @@
             padding-left: 16px;
             border-radius: 6px;
         }
+
         /* DETALLES CARD SHOW */
         .label {
             font-size: 12px;
@@ -92,8 +93,6 @@
             font-weight: 500;
             font-size: 15px;
         }
-
-
     </style>
 
     <title>@yield('title')</title>
@@ -163,12 +162,12 @@
 
                 {{-- Regionales --}}
                 <li class="mb-1">
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#regionales-collapse">
+                    <button onclick="window.location='{{ route('regionales.index') }}'"
+                        class="btn btn-toggle d-inline-flex align-items-center rounded border-0">
                         Regionales
                     </button>
 
-                    <div class="collapse" id="regionales-collapse">
+                    {{-- <div class="collapse" id="regionales-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 
                             <li>
@@ -186,162 +185,76 @@
                             </li>
 
                         </ul>
-                    </div>
+                    </div> --}}
                 </li>
 
                 {{-- Programas --}}
                 <li class="mb-1">
-
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#programas-collapse">
+                    <button onclick="window.location='{{ route('programas.index') }}'"
+                        class="btn btn-toggle d-inline-flex align-items-center rounded border-0">
                         Programas
                     </button>
 
-                    <div class="collapse" id="programas-collapse">
-
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-
-                            <li>
-                                <a href="{{ route('programas.index') }}"
-                                    class="link-dark d-inline-flex text-decoration-none rounded">
-                                    Ver Programas
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </div>
                 </li>
 
                 {{-- EPS --}}
                 <li class="mb-1">
 
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#eps-collapse">
+                    <button onclick="window.location='{{ route('eps.index') }}'"
+                        class="btn btn-toggle d-inline-flex align-items-center rounded border-0">
                         EPS
                     </button>
 
-                    <div class="collapse" id="eps-collapse">
-
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-
-                            <li>
-                                <a href="{{ route('eps.index') }}"
-                                    class="link-dark d-inline-flex text-decoration-none rounded">
-                                    Ver EPS
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </div>
                 </li>
 
                 {{-- ROLES --}}
                 <li class="mb-1">
 
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#roles-collapse">
+                    <button onclick="window.location='{{ route('rolesadministrativos.index') }}'"
+                        class="btn btn-toggle d-inline-flex align-items-center rounded border-0">
                         Roles
                     </button>
 
-                    <div class="collapse" id="roles-collapse">
-
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-
-                            <li>
-                                <a href="{{ route('rolesadministrativos.index') }}"
-                                    class="link-dark d-inline-flex text-decoration-none rounded">
-                                    Ver Roles
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </div>
                 </li>
 
                 {{-- TIPOS DOCUMENTOS --}}
                 <li class="mb-1">
 
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#tipos-collapse">
+                    <button onclick="window.location='{{ route('tiposdocumentos.index') }}'"
+                        class="btn btn-toggle d-inline-flex align-items-center rounded border-0">
                         Tipos de Documentos
                     </button>
-
-                    <div class="collapse" id="tipos-collapse">
-
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-
-                            <li>
-                                <a href="{{ route('tiposdocumentos.index') }}"
-                                    class="link-dark d-inline-flex text-decoration-none rounded">
-                                    Ver Identificaciones
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </div>
                 </li>
 
                 {{-- APRENDIZ --}}
                 <li class="mb-1">
 
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#aprendiz-collapse">
-                        Aprendiz
+                    <button onclick="window.location='{{ route('aprendices.index') }}'"
+                        class="btn btn-toggle d-inline-flex align-items-center rounded border-0">
+                        Aprendices
                     </button>
 
-                    <div class="collapse" id="aprendiz-collapse">
-
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-
-                            <li>
-                                <a href="{{ route('aprendices.index') }}"
-                                    class="link-dark d-inline-flex text-decoration-none rounded">
-                                    Ver Aprendices
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </div>
                 </li>
 
                 {{-- CENTROS DE FORMACION --}}
                 <li class="mb-1">
 
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#centrosdeformacion-collapse">
+                    <button onclick="window.location='{{ route('centrosdeformacion.index') }}'"
+                        class="btn btn-toggle d-inline-flex align-items-center rounded border-0">
                         Centros de Formación
                     </button>
 
-                    <div class="collapse" id="centrosdeformacion-collapse">
-
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-
-                            <li>
-                                <a href="{{ route('centrosdeformacion.index') }}"
-                                    class="link-dark d-inline-flex text-decoration-none rounded">
-                                    Ver Centros de Formación
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </div>
                 </li>
 
                 {{-- EMPRESAS --}}
                 <li class="mb-1">
 
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                            data-bs-toggle="collapse" data-bs-target="#enteconformadores-collapse">
+                    <button onclick="window.location='{{ route('enteconformadores.index') }}'"
+                        class="btn btn-toggle d-inline-flex align-items-center rounded border-0">
                         Empresas
                     </button>
 
-                    <div class="collapse" id=enteconformadores-collapse">
+                    {{-- <div class="collapse" id=enteconformadores-collapse">
 
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 
@@ -354,8 +267,17 @@
 
                         </ul>
 
-                    </div>
-                </li>
+                    </div>--}}
+                </li> 
+
+                {{-- FICHAS --}}
+                <li class="mb-1">
+
+                    <button onclick="window.location='{{ route('fichacaracterizacion.index') }}'"
+                        class="btn btn-toggle d-inline-flex align-items-center rounded border-0">
+                        Fichas
+                    </button>
+                    </li>
 
             </ul>
 

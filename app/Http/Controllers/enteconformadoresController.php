@@ -17,13 +17,12 @@ class enteconformadoresController extends Controller
         $buscar = $request->buscar;
 
         $enteconformador = enteconformadores::with(['tiposdocumentos'])
-            ->when($buscar, function ($query, $buscar) {
-                $query->where('numDocumento', 'like', "%$buscar%")
-                        ->orWhere('razonSocial', 'like', "%$buscar%");
-
-            });
-            //->paginate(10)
-            //->withQueryString(); // mantiener la búsqueda
+    ->when($buscar, function ($query, $buscar) {
+        $query->where('numDocumento', 'like', "%$buscar%")
+              ->orWhere('razonSocial', 'like', "%$buscar%");
+    })
+    ->paginate(10)
+    ->withQueryString();
 
         return view('EnteConformador.index', compact('enteconformador', 'buscar'));
     }
@@ -84,7 +83,7 @@ class enteconformadoresController extends Controller
         $enteconformador = enteconformadores::findOrFail($id);
         $tiposdocumentos = tiposdocumentos::all();
 
-   return view('EnteConformador.edit', compact('enteconformador'));
+   return view('EnteConformador.edit', compact('enteconformador' , 'tiposdocumentos'));
     }
 
     /**

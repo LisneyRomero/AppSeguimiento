@@ -337,6 +337,26 @@
             </div>
         </div>
 
+         <!-- FICHAS DE CARACTERIZACIÓN -->
+
+        <div class="card-ui">
+            <img src="{{ asset('images/ficha.jpg') }}">
+
+            <div class="card-body">
+
+                <h5>Fichas de Caracterización</h5>
+
+                <p class="card-text">
+                    Información de fichas de caracterización.
+                </p>
+
+                <a href="{{ route('fichacaracterizacion.index') }}" class="btn btn-ui">
+                    Abrir módulo
+                </a>
+
+            </div>
+        </div>
+
 
     </div>
 

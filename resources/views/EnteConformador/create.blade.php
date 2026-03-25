@@ -11,7 +11,7 @@
             </div>
 
             <div class="card-body">
-
+{{-- Mostrar errores de validación --}}
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul class="mb-0">

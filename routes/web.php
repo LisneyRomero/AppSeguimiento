@@ -8,6 +8,7 @@ use App\Http\Controllers\tiposdocumentosController;
 use App\Http\Controllers\aprendicesController;
 use App\Http\Controllers\centrodeformacionController;
 use App\Http\Controllers\enteconformadoresController;
+use App\Http\Controllers\fichacaracterizacionController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -41,3 +42,5 @@ Route::resource('/aprendices', aprendicesController::class);
 Route::resource('/centrosdeformacion', centrodeformacionController::class);
 
 Route::resource('/enteconformadores',enteconformadoresController::class);
+
+Route::resource('/fichacaracterizacion',fichacaracterizacionController::class);

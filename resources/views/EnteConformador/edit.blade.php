@@ -22,7 +22,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('enteconformadores.update', $centrodeformacion->NIS) }}" method="POST">
+                <form action="{{ route('enteconformadores.update', $enteconformador->NIS) }}" method="POST">
                     @csrf
                     @method('PUT')
 
@@ -32,44 +32,44 @@
                         <div class="col-md-6 mb-3">
                             <label class="form-label">NIS</label>
                             <input type="number" class="form-control"
-                                   value="{{ $centrodeformacion->NIS }}" disabled>
+                                   value="{{ $enteconformador->NIS }}" disabled>
                         </div>
 
-                        {{-- Regional --}}
+                        {{-- Tipo de Documento --}}
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Regional</label>
-                            <select name="tbl_regionales_NIS"
-                                    class="form-select @error('tbl_regionales_NIS') is-invalid @enderror">
-                                @foreach($regionales as $regional)
-                                    <option value="{{ $regional->NIS }}"
-                                        {{ old('tbl_regionales_NIS', $centrodeformacion->tbl_regionales_NIS) == $regional->NIS ? 'selected' : '' }}>
-                                        {{ $regional->denominacion }}
+                            <label class="form-label">Tipo de Documento</label>
+                            <select name="tbl_tiposdocumentos_NIS"
+                                    class="form-select @error('tbl_tiposdocumentos_NIS') is-invalid @enderror">
+                                @foreach($tiposdocumentos as $tipodocumento)
+                                    <option value="{{ $tipodocumento->NIS }}"
+                                        {{ old('tbl_tiposdocumentos_NIS', $enteconformador->tbl_tiposdocumentos_NIS) == $tipodocumento->NIS ? 'selected' : '' }}>
+                                        {{ $tipodocumento->denominacion }}
                                     </option>
                                 @endforeach
                             </select>
-                            @error('tbl_regionales_NIS')
+                            @error('tbl_tiposdocumentos_NIS')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
-                        {{-- Codigo--}}
+                        {{-- Numero de Documento --}}
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Código</label>
-                            <input type="number" name="codigo"
-                                   value="{{ old('codigo', $centrodeformacion->codigo) }}"
-                                   class="form-control @error('codigo') is-invalid @enderror">
-                            @error('codigo')
+                            <label class="form-label">Número de Documento</label>
+                            <input type="number" name="numDocumento"
+                                   value="{{ old('numDocumento', $enteconformador->numDocumento) }}"
+                                   class="form-control @error('numDocumento') is-invalid @enderror">
+                            @error('numDocumento')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
-                        {{-- Denominación --}}
+                        {{-- Razon social --}}
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Denominación</label>
-                            <input type="text" name="denominacion"
-                                   value="{{ old('denominacion', $centrodeformacion->denominacion) }}"
-                                   class="form-control @error('denominacion') is-invalid @enderror">
-                            @error('denominacion')
+                            <label class="form-label">Razon Social</label>
+                            <input type="text" name="razonSocial"
+                                   value="{{ old('razonSocial', $enteconformador->razonSocial) }}"
+                                   class="form-control @error('razonSocial') is-invalid @enderror">
+                            @error('razonSocial')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
@@ -78,16 +78,24 @@
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Dirección</label>
                             <input type="text" name="direccion"
-                                   value="{{ old('direccion', $centrodeformacion->direccion) }}"
+                                   value="{{ old('direccion', $enteconformador->direccion) }}"
                                    class="form-control">
                         </div>
 
 
-                        {{-- Observaciones --}}
+                        {{-- Telefono --}}
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Observaciones</label>
-                            <input type="text" name="observaciones"
-                                   value="{{ old('observaciones', $centrodeformacion->observaciones) }}"
+                            <label class="form-label">Teléfono</label>
+                            <input type="number" name="telefono"
+                                   value="{{ old('telefono', $enteconformador->telefono) }}"
+                                   class="form-control">
+                        </div>
+
+                        {{-- Correo Institucional --}}
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Correo Institucional</label>
+                            <input type="email" name="correoInstitucional"
+                                   value="{{ old('correoInstitucional', $enteconformador->correoInstitucional) }}"
                                    class="form-control">
                         </div>
 
@@ -98,7 +106,7 @@
                             Cancelar
                         </a>
                         <button type="submit" class="btn btn-warning">
-                            Actualizar Centro de Formación
+                            Actualizar Empresa
                         </button>
                     </div>
 
