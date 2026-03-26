@@ -33,30 +33,16 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/bitacoras', bitacorasController::class);
 
-//Route::get('/programas',[programasdeformacionController::class,'index'])->name('Programas.index');
-//Route::get('/programascreate',[programasdeformacionController::class,'create'])->name('Programas.create');
 Route::resource('/programas', programasdeformacionController::class);
-
-//Route::get('/regionales',[regionalesController::class,'index'])->name('Regionales.index');
-//Route::get('/regionalescreate',[regionalesController::class,'create'])->name('Regionales.create');
 Route::resource('/regionales', regionalesController::class);
-
 Route::resource('/eps', epsController::class);
-
 Route::resource('/rolesadministrativos', roladministrativoController::class);
-
 Route::resource('/tiposdocumentos', tiposdocumentosController::class);
-
 Route::resource('/aprendices', aprendicesController::class);
-
 Route::resource('/centrosdeformacion', centrodeformacionController::class);
-
 Route::resource('/enteconformadores',enteconformadoresController::class);
-
 Route::resource('/fichacaracterizacion',fichacaracterizacionController::class);
-
 Route::resource('/instructores',instructoresController::class);
-
 Route::resource('/bitacoras',bitacorasController::class);
 
 });

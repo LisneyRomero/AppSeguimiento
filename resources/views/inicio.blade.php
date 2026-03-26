@@ -357,6 +357,46 @@
             </div>
         </div>
 
+        <!-- Instructores -->
+
+        <div class="card-ui">
+            <img src="{{ asset('images/instructores.jpg') }}">
+
+            <div class="card-body">
+
+                <h5>Instructores</h5>
+
+                <p class="card-text">
+                    Información de instructores.
+                </p>
+
+                <a href="{{ route('instructores.index') }}" class="btn btn-ui">
+                    Abrir módulo
+                </a>
+
+            </div>
+        </div>
+
+        <!-- Bitacoras -->
+
+        <div class="card-ui">
+            <img src="{{ asset('images/bitacoras.jpg') }}">
+
+            <div class="card-body">
+
+                <h5>Bitacoras</h5>
+
+                <p class="card-text">
+                    Registro de bitacoras.
+                </p>
+
+                <a href="{{ route('bitacoras.index') }}" class="btn btn-ui">
+                    Abrir módulo
+                </a>
+
+            </div>
+        </div>
+
 
     </div>
 

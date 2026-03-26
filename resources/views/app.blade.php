@@ -279,7 +279,41 @@
                     </button>
                     </li>
 
+                    {{-- INSTRUCTORES --}}
+                <li class="mb-1">
+
+                    <button onclick="window.location='{{ route('instructores.index') }}'"
+                        class="btn btn-toggle d-inline-flex align-items-center rounded border-0">
+                        Instructores
+                    </button>
+                </li>
+
+                 {{-- BITACORAS --}}
+                <li class="mb-1">
+
+                    <button onclick="window.location='{{ route('bitacoras.index') }}'"
+                        class="btn btn-toggle d-inline-flex align-items-center rounded border-0">
+                        Bitacoras
+                    </button>
+                </li>
+
+            
+                    </button>
+                </li>
+                    
+
             </ul>
+
+            <div class="mt-auto p-3">
+
+                <form action="{{ route('logout') }}" method="POST">
+                     @csrf
+                        <button type="submit" class="btn btn-outline-danger w-100">
+                         <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+                      </button>
+                </form>
+
+        </div>
 
         </div>
 
